@@ -6,7 +6,6 @@ const { readdirSync } = require("fs")
 const db = require('quick.db')
 const p = new db.table("Prefix")
 const logembed = new db.table("embedlog")
-const { Player } = require('discord-player');
 ms = require("ms")
 const color = config.app.color
 const client = new Client({
@@ -87,8 +86,6 @@ for (const file of eventFiles) {
         client.on(event.name, (...args) => event.execute(client, ...args));
     }
 }
-
-global.player = new Player(client, config.app.discordPlayer);
 
 //ANTI CRASH
 process.on("unhandledRejection", (reason, p) => {
