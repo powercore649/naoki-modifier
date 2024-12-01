@@ -135,7 +135,7 @@ module.exports = {
                 interaction.reply({ content: `Transcript en cours`, ephemeral: true })
 
                 const msgd = await interaction.channel.send({
-                    content: `${emote.owner.warn} Récupération des messages, cela peut prendre un certain temps...`,
+                    content: `⚠️ Récupération des messages, cela peut prendre un certain temps...`,
                 }).catch(() => false)
 
                 const fetchAll = require('discord-fetch-all');
@@ -164,7 +164,7 @@ module.exports = {
                                 if (err) throw err;
                             });
                         }, 1000))
-                    msgd.edit({ content: `Je vous ai envoyé le **transcript** du salon en message privé` })
+                    msgd.edit({ content: `Je vous ai envoyé le **transcript** du salon en message privé`})
 
                     interaction.member.send({
                         content: `Voici le **transcript** du salon que vous pouvez télécharger ou le haste : ${haste} `,

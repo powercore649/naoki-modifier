@@ -19,7 +19,7 @@ module.exports = {
         const boost = message.guild.premiumSubscriptionCount || '0'
 
         const embed = new Discord.MessageEmbed()
-            .setTitle(`${emote.utilitaire.vocales}・Stats de ${message.guild.name}`)
+            .setTitle(`🔊・Stats de ${message.guild.name}`)
             .setColor(color)
             .setThumbnail(message.guild.iconURL({ dynamic: true }))
             .setDescription(`*Membres :* **${total}** \n*En ligne :* **${online}** \n*En vocal :* **${vocal}**  \n*Boost :* **${boost}** `)

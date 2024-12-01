@@ -430,17 +430,17 @@ module.exports = {
                 const newChannel = message.mentions.channels.first() || message.guild.channels.cache.get(args[1] || message.channelId);
                 if (args[1] == undefined) args[1] = `<#${message.channel.id}>`
                 if (!newChannel) return message.channel.send({ content: "Aucun salon trouvé !" })
-                if (db.get(`salonbvn_${message.guild.id}`) === newChannel) return message.channel.send(`${emote.utilitaire.information}・__Nouveau salon de bienvenue :__ \`${db.get(`salonbvn_${message.guild.id}`)}\``)
+                if (db.get(`salonbvn_${message.guild.id}`) === newChannel) return message.channel.send(`ℹ️・__Nouveau salon de bienvenue :__ \`${db.get(`salonbvn_${message.guild.id}`)}\``)
                 else {
                     db.set(`salonbvn_${message.guild.id}`, newChannel.id)
-                    message.channel.send(`${emote.utilitaire.information}・__Nouveau salon de bienvenue :__ ${args[1]}`)
+                    message.channel.send(`ℹ️・__Nouveau salon de bienvenue :__ ${args[1]}`)
 
                     const logs = db.get(`salonbvn_${message.guild.id}`)
 
                     const embed = new Discord.MessageEmbed()
                         .setColor(color)
                         .setTitle(`${message.author.tag} a défini ce salon commme salon de bienvenue`)
-                        .setDescription(`${emote.utilitaire.information} Ce salon est désormais utilisé pour __toutes__ les **arrivées** du serveur\nExécuteur : <@${message.author.id}>`)
+                        .setDescription(`ℹ️ Ce salon est désormais utilisé pour __toutes__ les **arrivées** du serveur\nExécuteur : <@${message.author.id}>`)
                         .setTimestamp()
                         .setFooter({ text: `${footer}` })
                     client.channels.cache.get(logs).send({ embeds: [embed] }).catch(() => false)

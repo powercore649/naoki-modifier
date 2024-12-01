@@ -16,7 +16,7 @@ module.exports = {
         if (owner.get(`owners.${message.author.id}`) || config.bot.buyer.includes(message.author.id) || config.bot.funny.includes(message.author.id) === true) {
 
             const msgd = await message.channel.send({
-                content: `${emote.owner.warn} Récupération des messages, cela peut prendre un certain temps...`,
+                content: `⚠️ Récupération des messages, cela peut prendre un certain temps...`,
             })
 
             const fetchAll = require('discord-fetch-all');

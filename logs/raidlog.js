@@ -23,7 +23,7 @@ module.exports = {
             const newChannel = message.mentions.channels.first() || message.guild.channels.cache.get(args[0] || message.channelId);
             if (args[0] == undefined) args[0] = `<#${message.channel.id}>`
             if (!newChannel) return message.channel.send({ content: "Aucun salon trouvé !" })
-            if (raidlog.get(`${message.guild.id}.raidlog`) === newChannel) return message.channel.send(`${emote.buyer.valid}・__Nouveau salon des logs de raid :__ \`${raidlog.get(`${message.guild.id}.raidlog`)}\``)
+            if (raidlog.get(`${message.guild.id}.raidlog`) === newChannel) return message.channel.send(`ℹ️・__Nouveau salon des logs de raid :__ \`${raidlog.get(`${message.guild.id}.raidlog`)}\``)
             else {
                 raidlog.set(`${message.guild.id}.raidlog`, newChannel.id)
                 message.channel.send(`${emote.buyer.valid}・__Nouveau salon des logs de raid :__ ${args[0]}`)

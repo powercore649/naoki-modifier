@@ -21,10 +21,10 @@ module.exports = {
 
                 const newChannel = message.mentions.channels.first() || message.guild.channels.cache.get(args[1] || message.channelId);
                 if (!newChannel) return message.channel.send({ content: "Aucun salon trouvé !" })
-                if (db.get(`${message.guild.id}.antivoc.${newChannel.id}`) === newChannel) return message.channel.send(`${emote.vocaux.voc}・__Le salon <#${db.get(`${message.guild.id}.antivoc.${newChannel}`)}> est désormais interdit__\n*(Bypass par les owners et la Whitelist)*`)
+                if (db.get(`${message.guild.id}.antivoc.${newChannel.id}`) === newChannel) return message.channel.send(`🔊・__Le salon <#${db.get(`${message.guild.id}.antivoc.${newChannel}`)}> est désormais interdit__\n*(Bypass par les owners et la Whitelist)*`)
                 else {
                     db.set(`${message.guild.id}.antivoc.${newChannel.id}`, newChannel.id)
-                    message.channel.send(`${emote.vocaux.voc}・__Le salon ${newChannel} est désormais interdit__\n*(Bypass: owner et whitelist)*`)
+                    message.channel.send(`🔊・__Le salon ${newChannel} est désormais interdit__\n*(Bypass: owner et whitelist)*`)
 
                 }
             }

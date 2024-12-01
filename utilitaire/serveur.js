@@ -81,19 +81,19 @@ module.exports = {
                 .setTitle(`Informations sur \`${message.guild.name}\``)
                 .setDescription(`**Description**\n ${desc}`)
                 .addFields(
-                    { name: `${emote.utilitaire.id} ID du serveur`, value: `${message.guild.id}`, inline: true },
-                    { name: `${emote.utilitaire.blackcrown} Propriétaire`, value: `<@${message.guild.ownerId}>`, inline: true },
-                    { name: `${emote.utilitaire.id} ID Propriétaire`, value: `${message.guild.ownerId}`, inline: true },
-                    { name: `${emote.utilitaire.membres} Nombre de Membres`, value: `${message.guild.memberCount || '0'}`, inline: true },
+                    { name: `ℹ️ ID du serveur`, value: `${message.guild.id}`, inline: true },
+                    { name: `👑 Propriétaire`, value: `<@${message.guild.ownerId}>`, inline: true },
+                    { name: `ℹ️ ID Propriétaire`, value: `${message.guild.ownerId}`, inline: true },
+                    { name: `👥 Nombre de Membres`, value: `${message.guild.memberCount || '0'}`, inline: true },
                     { name: "Nombre de Boosts", value: `${message.guild.premiumSubscriptionCount || '0'}`, inline: true },
-                    { name: `${emote.utilitaire.boosts} Niveau de Boost`, value: `${premiumTier[message.guild.premiumTier]}`, inline: true },
-                    { name: `${emote.utilitaire.bots} Nombre de Bots`, value: `${membersGuild.filter(member => member.user.bot).size}`, inline: true },
-                    { name: `${emote.utilitaire.iconrole} Nombre de Rôles`, value: `${rolesGuild.length}`, inline: true },
-                    { name: `${emote.utilitaire.salon} Nombres de Salons`, value: `${channelsGuild.size}`, inline: true },
-                    { name: `${emote.utilitaire.emotes} Nombre d'Emojis`, value: `${emojisGuild.size}`, inline: true },
-                    { name: `${emote.utilitaire.loading} Date de création`, value: `${moment(message.guild.createdAt).format('LLLL')}`, inline: true },
-                    { name: `${emote.utilitaire.link} URL Personnalisée`, value: message.guild.vanityURLCode ? `discord.gg/${message.guild.vanityURLCode}` : `Le serveur ne possède pas d'URL`, inline: true },
-                    { name: `${emote.utilitaire.iconsettings} Vérification du serveur`, value: `${verifLevels[message.guild.verificationLevel]}`, inline: true }
+                    { name: `🔮 Niveau de Boost`, value: `${premiumTier[message.guild.premiumTier]}`, inline: true },
+                    { name: `🤖 Nombre de Bots`, value: `${membersGuild.filter(member => member.user.bot).size}`, inline: true },
+                    { name: `👤 Nombre de Rôles`, value: `${rolesGuild.length}`, inline: true },
+                    { name: `️⃣ Nombres de Salons`, value: `${channelsGuild.size}`, inline: true },
+                    { name: `🎈 Nombre d'Emojis`, value: `${emojisGuild.size}`, inline: true },
+                    { name: `❕ Date de création`, value: `${moment(message.guild.createdAt).format('LLLL')}`, inline: true },
+                    { name: `🔗 URL Personnalisée`, value: message.guild.vanityURLCode ? `discord.gg/${message.guild.vanityURLCode}` : `Le serveur ne possède pas d'URL`, inline: true },
+                    { name: `⚙️ Vérification du serveur`, value: `${verifLevels[message.guild.verificationLevel]}`, inline: true }
                 )
                 .setFooter({ text: `${config.bot.footer}` });
             message.channel.send({ embeds: [embed] });

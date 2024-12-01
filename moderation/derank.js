@@ -52,7 +52,7 @@ module.exports = {
                 const alert = new Discord.MessageEmbed()
                     .setColor(color)
                     .setTitle(`${message.author.tag} a effectué un derank all`)
-                    .setDescription(`${emote.owner.abus} Toutes les personnes sur le serveur ont été derank\nExécuteur : <@${message.author.id}>`)
+                    .setDescription(`⚠️ Toutes les personnes sur le serveur ont été derank\nExécuteur : <@${message.author.id}>`)
                     .setTimestamp()
                     .setFooter({ text: `⚠️ ${footer}` });
 
@@ -87,7 +87,7 @@ module.exports = {
                 const modlog = new Discord.MessageEmbed()
                     .setColor(color)
                     .setTitle(`${message.author.tag} a effectué un derank`)
-                    .setDescription(`${emote.owner.abus} <@${member.id}> a été derank\nExécuteur : <@${message.author.id}>`)
+                    .setDescription(`⚠️ <@${member.id}> a été derank\nExécuteur : <@${message.author.id}>`)
                     .setTimestamp()
                     .setFooter({ text: `⚠️ ${footer}` });
 

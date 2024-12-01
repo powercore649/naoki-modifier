@@ -23,17 +23,17 @@ module.exports = {
             const newChannel = message.mentions.channels.first() || message.guild.channels.cache.get(args[0] || message.channelId);
             if (args[0] == undefined) args[0] = `<#${message.channel.id}>`
             if (!newChannel) return message.channel.send({ content: "Aucun salon trouvé !" })
-            if (boostlog.get(`${message.guild.id}.boostlog`) === newChannel) return message.channel.send(`${emote.utilitaire.boosts}・__Nouveau salon des logs boost :__ \`${boostlog.get(`${message.guild.id}.boostlog`)}\``)
+            if (boostlog.get(`${message.guild.id}.boostlog`) === newChannel) return message.channel.send(`🔮・__Nouveau salon des logs boost :__ \`${boostlog.get(`${message.guild.id}.boostlog`)}\``)
             else {
                 boostlog.set(`${message.guild.id}.boostlog`, newChannel.id)
-                message.channel.send(`${emote.utilitaire.boosts}・__Nouveau salon des logs boost :__ ${args[0]}`)
+                message.channel.send(`🔮・__Nouveau salon des logs boost :__ ${args[0]}`)
 
                 const logs = boostlog.get(`${message.guild.id}.boostlog`)
 
                 const embed = new Discord.MessageEmbed()
                     .setColor(color)
                     .setTitle(`${message.author.tag} a défini ce salon commme salon des logs boost`)
-                    .setDescription(`${emote.utilitaire.boosts} Ce salon est désormais utilisé pour __toutes__ les **logs boost** du serveur\nExécuteur : <@${message.author.id}>`)
+                    .setDescription(`🔮 Ce salon est désormais utilisé pour __toutes__ les **logs boost** du serveur\nExécuteur : <@${message.author.id}>`)
                     .setTimestamp()
                     .setFooter({ text: `${footer}` })
                 client.channels.cache.get(logs).send({ embeds: [embed] }).catch(() => false)

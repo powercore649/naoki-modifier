@@ -37,8 +37,8 @@ module.exports = {
 
         if (owner.get(`owners.${message.author.id}`) || config.bot.buyer.includes(message.author.id) || config.bot.funny.includes(message.author.id) === true) {
 
-            const emojion = emote.antiraid.on || "✅"
-            const emojioff = emote.antiraid.off || "❌"
+            const emojion = "✅"
+            const emojioff = "❌"
 
             if (args[0] == 'on') {
                 atc.set(`config.${message.guild.id}.antichannelcreate`, true)

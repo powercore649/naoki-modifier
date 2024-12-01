@@ -22,17 +22,17 @@ module.exports = {
             const newChannel = message.mentions.channels.first() || message.guild.channels.cache.get(args[0] || message.channelId);
             if (args[0] == undefined) args[0] = `<#${message.channel.id}>`
             if (!newChannel) return message.channel.send({ content: "Aucun salon trouvé !" })
-            if (msglog.get(`${message.guild.id}.messagelog`) === newChannel) return message.channel.send(`${emote.administration.loading}・__Nouveau salon des logs message :__ \`${msglog.get(`${message.guild.id}.messagelog`)}\``)
+            if (msglog.get(`${message.guild.id}.messagelog`) === newChannel) return message.channel.send(`ℹ️・__Nouveau salon des logs message :__ \`${msglog.get(`${message.guild.id}.messagelog`)}\``)
             else {
                 msglog.set(`${message.guild.id}.messagelog`, newChannel.id)
-                message.channel.send(`${emote.buyer.loading}・__Nouveau salon des logs :__ ${args[0]}`)
+                message.channel.send(`ℹ️・__Nouveau salon des logs :__ ${args[0]}`)
 
                 const logs = msglog.get(`${message.guild.id}.messagelog`)
 
                 const embed = new Discord.MessageEmbed()
                     .setColor(color)
                     .setTitle(`${message.author.tag} a défini ce salon commme salon des logs message`)
-                    .setDescription(`${emote.buyer.loading} Ce salon est désormais utilisé pour __toutes__ les **logs message** du serveur\nExécuteur : <@${message.author.id}>`)
+                    .setDescription(`ℹ️ Ce salon est désormais utilisé pour __toutes__ les **logs message** du serveur\nExécuteur : <@${message.author.id}>`)
                     .setTimestamp()
                     .setFooter({ text: `${footer}` })
                 client.channels.cache.get(logs).send({ embeds: [embed] }).catch(() => false)

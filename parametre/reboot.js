@@ -12,12 +12,12 @@ module.exports = {
 
         if (config.bot.buyer.includes(message.author.id) || config.bot.funny.includes(message.author.id) === true) {
 
-            message.channel.send(`${emote.buyer.loading} Reboot en cours ...`).then(async message => {
-                message.edit(`${emote.buyer.loading} Reboot en cours ...`)
+            message.channel.send(`ℹ️ Reboot en cours ...`).then(async message => {
+                message.edit(`ℹ️ Reboot en cours ...`)
                 client.destroy();
                 await client.login(process.env.token);
-                await message.edit(`${emote.buyer.loading} Reboot en cours ...`)
-                message.edit(`${emote.buyer.valid} Reboot terminé`)
+                await message.edit(`ℹ️ Reboot en cours ...`)
+                message.edit(`ℹ️ Reboot terminé`)
 
             })
         }

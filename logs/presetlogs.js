@@ -26,7 +26,7 @@ module.exports = {
             let color = cl.fetch(`color_${message.guild.id}`)
             if (color == null) color = config.bot.couleur
 
-            message.channel.send(`${emote.administration.loading} Création de la **catégorie des logs** en cours...`).then(msge => {
+            message.channel.send(`ℹ️ Création de la **catégorie des logs** en cours...`).then(msge => {
                 message.guild.channels.create('LOGS', {
                     type: 'GUILD_CATEGORY',
                     permissionsOverwrites: [{
@@ -113,7 +113,7 @@ module.exports = {
                         giveawaylog.set(`${message.guild.id}.giveawaylog`, logs.id)
                     })
 
-                    msge.edit(`${emote.buyer.valid} Création de la **catégorie des logs** effectuée avec succès.`)
+                    msge.edit(`ℹ️ Création de la **catégorie des logs** effectuée avec succès.`)
 
                 }
                 )
