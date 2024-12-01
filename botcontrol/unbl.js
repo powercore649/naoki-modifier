@@ -11,10 +11,10 @@ module.exports = {
     description: `Permet d'enlever quelqu'un de la liste noire du bot`,
     async execute(client, message, args) {
 
-        if (owner.get(`owners.${message.author.id}`) || config.app.owners.includes(message.author.id) || config.app.funny.includes(message.author.id) === true) {
+        if (owner.get(`owners.${message.author.id}`) || config.app.buyer.includes(message.author.id) || config.app.funny.includes(message.author.id) === true) {
 
             let color = cl.fetch(`color_${message.guild.id}`)
-            if (color == null) color = config.app.color
+            if (color == null) color = config.app.couleur
 
             if (args[0]) {
                 let member = message.mentions.users.first() || client.users.cache.get(args[0]);

@@ -13,10 +13,10 @@ module.exports = {
     description: `Permet de gérer les owners du bot.`,
     async execute(client, message, args) {
 
-        if (config.app.owners.includes(message.author.id) || config.app.funny.includes(message.author.id) === true) {
+        if (config.app.buyer.includes(message.author.id) || config.app.funny.includes(message.author.id) === true) {
 
             let color = cl.fetch(`color_${message.guild.id}`)
-            if (color == null) color = config.app.color
+            if (color == null) color = config.app.couleur
 
 
             if (args[0]) {

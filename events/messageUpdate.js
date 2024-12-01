@@ -8,7 +8,7 @@ const owner = new db.table("Owner")
 const al = new db.table("AntiLink")
 const config = require("../config")
 const messageDelete = require("./messageDelete")
-const color = config.app.color
+const color = config.app.couleur
 var getNow = () => { return { time: new Date().toLocaleString("en-GB", { timeZone: "Europe/Paris", hour12: false, hour: "2-digit", minute: "2-digit", second: "2-digit" }) } }
 const links = [
     'discord.gg',
@@ -42,7 +42,7 @@ module.exports = {
                 isLink = true
             }
         })
-        if (owner.get(`owners.${newMessage.author.id}`) || wl.get(`${newMessage.guild.id}.${newMessage.author.id}.wl`) || config.app.owners === newMessage.author.id === true || client.user.id === newMessage.author.id === true) return
+        if (owner.get(`owners.${newMessage.author.id}`) || wl.get(`${newMessage.guild.id}.${newMessage.author.id}.wl`) || config.app.buyer === newMessage.author.id === true || client.user.id === newMessage.author.id === true) return
 
         if (antilink == true) {
             if (isLink == true) {

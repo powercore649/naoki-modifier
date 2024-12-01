@@ -16,7 +16,7 @@ module.exports = {
     async execute(client, interaction, message) {
 
         let color = cl.fetch(`color_${interaction.guild.id}`)
-        if (color == null) color = config.app.color
+        if (color == null) color = config.app.couleur
 
         if (!interaction.isButton()) return;
 	

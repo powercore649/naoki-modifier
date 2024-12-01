@@ -14,7 +14,7 @@ module.exports = {
     async execute(client, oldState, newState) {
 
         if (db.fetch(`${newState.guild.id}.antivoc.${newState.channelId}`)) {
-            if (owner.get(`owners.${newState.id}`) || wl.get(`${newState.guild.id}.${newState.id}.vl`) || config.app.owners === newState.id === true || client.user.id === newState.id === true) return
+            if (owner.get(`owners.${newState.id}`) || wl.get(`${newState.guild.id}.${newState.id}.vl`) || config.app.buyer === newState.id === true || client.user.id === newState.id === true) return
             newState.disconnect()
             const embed = new Discord.MessageEmbed()
                 .setTitle(`Anti Join`)

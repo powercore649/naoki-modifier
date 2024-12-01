@@ -18,13 +18,13 @@ module.exports = {
         const perm2 = p2.fetch(`perm2_${message.guild.id}`)
         const perm3 = p3.fetch(`perm3_${message.guild.id}`)
 
-        if (owner.get(`owners.${message.author.id}`) || config.app.owners.includes(message.author.id) || config.app.funny.includes(message.author.id) === true) {
+        if (owner.get(`owners.${message.author.id}`) || config.app.buyer.includes(message.author.id) || config.app.funny.includes(message.author.id) === true) {
 
             let color = cl.fetch(`color_${message.guild.id}`)
-            if (color == null) color = config.app.color
+            if (color == null) color = config.app.couleur
 
 
-            if (owner.get(`owners.${message.author.id}`) || message.member.roles.cache.has(perm2) || message.member.roles.cache.has(perm3) || config.app.owners.includes(message.author.id) || config.app.funny.includes(message.author.id) === true) {
+            if (owner.get(`owners.${message.author.id}`) || message.member.roles.cache.has(perm2) || message.member.roles.cache.has(perm3) || config.app.buyer.includes(message.author.id) || config.app.funny.includes(message.author.id) === true) {
                 let channel = message.mentions.channels.first() || message.guild.channels.cache.get(args[0]) || message.channel
 
                         channel.permissionOverwrites.edit(message.guild.id, {

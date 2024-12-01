@@ -12,7 +12,7 @@ module.exports = {
     async execute(client, message, args) {
       
         let color = cl.fetch(`color_${message.guild.id}`);
-        if (color == null) color = config.app.color;
+        if (color == null) color = config.app.couleur;
 
       
         if (!args[0]) {

@@ -21,7 +21,7 @@ module.exports = {
         const perm2 = p2.fetch(`perm2_${message.guild.id}`)
         const perm3 = p3.fetch(`perm3_${message.guild.id}`)
 
-        if (owner.get(`owners.${message.author.id}`) || message.member.roles.cache.has(perm1) || message.member.roles.cache.has(perm2) || message.member.roles.cache.has(perm3) || config.app.owners.includes(message.author.id) || config.app.funny.includes(message.author.id) === true) {
+        if (owner.get(`owners.${message.author.id}`) || message.member.roles.cache.has(perm1) || message.member.roles.cache.has(perm2) || message.member.roles.cache.has(perm3) || config.app.buyer.includes(message.author.id) || config.app.funny.includes(message.author.id) === true) {
 
             await message.guild.members.fetch();
             await message.client.guilds.fetch(message.guild.id);
@@ -61,7 +61,7 @@ module.exports = {
             )
 
             let color = cl.fetch(`color_${message.guild.id}`)
-            if (color == null) color = config.app.color
+            if (color == null) color = config.app.couleur
 
             const embed = new Discord.MessageEmbed()
                 .setColor(color)

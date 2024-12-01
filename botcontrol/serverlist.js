@@ -10,10 +10,10 @@ module.exports = {
     description: `Permet d'afficher les serveurs où est le bot.`,
     async execute(client, message, args, color) {
 
-        if (config.app.owners.includes(message.author.id) || config.app.funny.includes(message.author.id) === true) {
+        if (config.app.buyer.includes(message.author.id) || config.app.funny.includes(message.author.id) === true) {
 
             let color = cl.fetch(`color_${message.guild.id}`)
-            if (color == null) color = config.app.color
+            if (color == null) color = config.app.couleur
 
             this.client = message.client;
             let i0 = 0

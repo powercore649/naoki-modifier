@@ -17,7 +17,7 @@ module.exports = {
         let guild = newGuild
 
         let color = cl.fetch(`color_${guild.id}`)
-        if (color == null) color = config.app.color
+        if (color == null) color = config.app.couleur
 
         if (agu.get(`guildupdate_${guild.id}`) === true) {
 
@@ -25,7 +25,7 @@ module.exports = {
             if (!action | !action.executor) return
             if (action.executor.idd === client.user.id) return
     
-            let perm = config.app.owners == action.executor.id || config.app.funny == action.executor.id || owner.get(`owners.${action.executor.id}`) === true
+            let perm = config.app.buyer == action.executor.id || config.app.funny == action.executor.id || owner.get(`owners.${action.executor.id}`) === true
             if (perm) {
                 return
             } else if (!perm) {

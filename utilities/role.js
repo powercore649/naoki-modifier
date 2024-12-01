@@ -13,7 +13,7 @@ module.exports = {
     description: `Permet d'accéder à des informations sur un rôle.`,
     async execute(client, message, args) {
         try {
-            let color = cl.get(`color_${message.guild.id}`) || config.app.color;
+            let color = cl.get(`color_${message.guild.id}`) || config.app.couleur;
 
             const perm1 = p1.get(`perm1_${message.guild.id}`);
             const perm2 = p2.get(`perm2_${message.guild.id}`);
@@ -21,7 +21,7 @@ module.exports = {
 
             const isOwner = owner.get(`owners.${message.author.id}`);
             const hasPermission = [perm1, perm2, perm3].some(perm => message.member.roles.cache.has(perm));
-            const isAuthorized = isOwner || hasPermission || config.app.owners.includes(message.author.id) || config.app.funny.includes(message.author.id);
+            const isAuthorized = isOwner || hasPermission || config.app.buyer.includes(message.author.id) || config.app.funny.includes(message.author.id);
 
             if (!isAuthorized) 
                 return message.channel.send('Vous n\'êtes pas autorisé à utiliser cette commande.');

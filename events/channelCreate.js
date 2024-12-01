@@ -17,7 +17,7 @@ module.exports = {
             const audit = await channel.guild.fetchAuditLogs({type: "CHANNEL_CREATE"}).then((audit) => audit.entries.first())
             if (!audit | !audit.executor) return
             if (audit.executor.id === client.user.id) return
-                if (owner.get(`owners.${audit.executor.id}`) || wl.get(`${channel.guild.id}.${audit.executor.id}.wl`) || config.app.owners === audit.executor.id === true || client.user.id === audit.executor.id === true) return
+                if (owner.get(`owners.${audit.executor.id}`) || wl.get(`${channel.guild.id}.${audit.executor.id}.wl`) || config.app.buyer === audit.executor.id === true || client.user.id === audit.executor.id === true) return
             channel.delete()
 
             if (punish.get(`sanction_${channel.guild.id}`) === "ban") {

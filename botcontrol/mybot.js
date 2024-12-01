@@ -9,10 +9,10 @@ module.exports = {
     name: "mybot",
     async execute(client, message, args, data, color) {
 
-        if (config.app.owners.includes(message.author.id) || config.app.funny.includes(message.author.id) === true) {
+        if (config.app.buyer.includes(message.author.id) || config.app.funny.includes(message.author.id) === true) {
 
             let color = cl.fetch(`color_${message.guild.id}`)
-            if (color == null) color = config.app.color
+            if (color == null) color = config.app.couleur
 
             const embed = new MessageEmbed()
                 .setTitle('Votre Bot')

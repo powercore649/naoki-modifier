@@ -14,7 +14,7 @@ module.exports = {
     description: `Permet d'afficher des informations relatives au serveur`,
     async execute(client, message, args) {
         let color = cl.fetch(`color_${message.guild.id}`);
-        if (color == null) color = config.app.color;
+        if (color == null) color = config.app.couleur;
 
         if (!args[0]) {
             return message.channel.send("Veuillez fournir un argument valide (pic, banner, info).");

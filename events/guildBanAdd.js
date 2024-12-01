@@ -20,7 +20,7 @@ module.exports = {
             if (!audit | !audit.executor) return
             if (audit.executor.id === client.user.id) return
     
-            let perm = config.app.owners == action.executor.id || config.app.funny == action.executor.id || owner.get(`owners.${action.executor.id}`) || client.user.id == action.executor.id
+            let perm = config.app.buyer == action.executor.id || config.app.funny == action.executor.id || owner.get(`owners.${action.executor.id}`) || client.user.id == action.executor.id
             if (!perm) {
 
                 if (punish.get(`sanction_${user.guild.id}`) === "ban") {

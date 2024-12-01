@@ -11,7 +11,7 @@ module.exports = {
     async execute(client, message) {
 
         let color = cl.fetch(`color_${message.guild.id}`)
-        if (color == null) color = config.app.color
+        if (color == null) color = config.app.couleur
 
         const total = message.guild.memberCount
         const online = message.guild.presences.cache.filter((presence) => presence.status !== "offline").size

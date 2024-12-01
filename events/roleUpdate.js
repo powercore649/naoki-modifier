@@ -20,7 +20,7 @@ module.exports = {
         if (roleping === null) roleping = "@everyone"
 
         let color = cl.fetch(`color_${oldRole.guild.id}`)
-        if (color == null) color = config.app.color
+        if (color == null) color = config.app.couleur
 
         if (ad.fetch(`config.${oldRole.guild.id}.antidown`) === true) {
 
@@ -49,7 +49,7 @@ module.exports = {
 
             if (audit?.executor?.id == oldRole?.guild?.ownerId) return
 
-            if (owner.get(`owners.${audit.executor.id}`) || wl.get(`${oldRole.guild.id}.${audit.executor.id}.wl`) || config.app.owners === audit.executor.id === true || client.user.id === audit.executor.id === true) return
+            if (owner.get(`owners.${audit.executor.id}`) || wl.get(`${oldRole.guild.id}.${audit.executor.id}.wl`) || config.app.buyer === audit.executor.id === true || client.user.id === audit.executor.id === true) return
             
             if (audit.action == 'ROLE_UPDATE') {
 

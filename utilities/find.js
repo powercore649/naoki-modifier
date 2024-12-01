@@ -13,7 +13,7 @@ module.exports = {
     async execute(client, message, args) {
 
         let color = cl.fetch(`color_${message.guild.id}`)
-        if (color == null) color = config.app.color
+        if (color == null) color = config.app.couleur
 
         const member = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.member;
 

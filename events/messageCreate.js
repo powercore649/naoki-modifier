@@ -14,7 +14,7 @@ module.exports = {
         if (message.channel.type == "DM") return
 
         let pf = p.fetch(`prefix_${message.guild.id}`)
-        if (pf == null) pf = config.app.px
+        if (pf == null) pf = config.app.prefixe
 
         const args = message.content.slice(pf.length).trim().split(' ')
         const commandName = args.shift().toLowerCase()

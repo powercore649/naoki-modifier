@@ -11,13 +11,13 @@ module.exports = {
     description: `Permet de changer le prefix du bot sur un serveur.`,
     async execute(client, message, args) {
 
-        if (owner.get(`owners.${message.author.id}`) || config.app.owners.includes(message.author.id) || config.app.funny.includes(message.author.id) === true) {
+        if (owner.get(`owners.${message.author.id}`) || config.app.buyer.includes(message.author.id) || config.app.funny.includes(message.author.id) === true) {
 
             let color = cl.fetch(`color_${message.guild.id}`)
-            if (color == null) color = config.app.color
+            if (color == null) color = config.app.couleur
 
             let pf = p.fetch(`prefix_${message.guild.id}`)
-            if (pf == null) pf = config.app.px
+            if (pf == null) pf = config.app.prefixe
 
             const newprefix = args[0]
 

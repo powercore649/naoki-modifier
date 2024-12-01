@@ -13,9 +13,9 @@ module.exports = {
     description: `Permet d'ajouter un rôle temporaire à un membre ou de voir la liste des rôles temporaires.`,
     async execute(client, message, args) {
         let color = cl.fetch(`color_${message.guild.id}`);
-        if (color == null) color = config.app.color;
+        if (color == null) color = config.app.couleur;
 
-        if (owner.get(`owners.${message.author.id}`) || config.app.owners.includes(message.author.id) || config.app.funny.includes(message.author.id) || message.member.roles.cache.has(pgs.get(`permgs_${message.guild.id}`))) {
+        if (owner.get(`owners.${message.author.id}`) || config.app.buyer.includes(message.author.id) || config.app.funny.includes(message.author.id) || message.member.roles.cache.has(pgs.get(`permgs_${message.guild.id}`))) {
             if (args[0] === 'list') {
                 let allTempRoles = temproles.fetch(`temproles_${message.guild.id}`) || [];
                 if (allTempRoles.length === 0) {

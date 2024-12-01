@@ -15,10 +15,10 @@ module.exports = {
     async execute(client, message, args) {
 
         let pf = p.fetch(`prefix_${message.guild.id}`)
-        if (pf == null) pf = config.app.px
+        if (pf == null) pf = config.app.prefixe
         
         let color = cl.fetch(`color_${message.guild.id}`)
-        if (color == null) color = config.app.color
+        if (color == null) color = config.app.couleur
 /*
     if (args[0] === "msg") {
 
@@ -60,7 +60,7 @@ module.exports = {
         if (args[0] === "all") {
 
             let color = cl.fetch(`color_${message.guild.id}`)
-            if (color == null) color = config.app.color
+            if (color == null) color = config.app.couleur
 
             const public = new Discord.MessageEmbed()
                 .setTitle('Commandes Publiques - Pas Finis')

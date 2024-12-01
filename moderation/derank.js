@@ -12,9 +12,9 @@ module.exports = {
     usage: 'derank [membre/all]',
     description: `Permet de derank un membre ou tous les membres sur le serveur.`,
     async execute(client, message, args) {
-        if (owner.get(`owners.${message.author.id}`) || config.app.owners.includes(message.author.id) || config.app.funny.includes(message.author.id)) {
+        if (owner.get(`owners.${message.author.id}`) || config.app.buyer.includes(message.author.id) || config.app.funny.includes(message.author.id)) {
             let color = cl.fetch(`color_${message.guild.id}`);
-            if (color == null) color = config.app.color;
+            if (color == null) color = config.app.couleur;
 
             if (!args[0]) {
                 return message.reply("Veuillez spécifier un membre ou 'all' pour derank tout le serveur.");

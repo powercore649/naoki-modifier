@@ -16,7 +16,7 @@ module.exports = {
     async execute(client, member) {
 
         let color = cl.fetch(`color_${member.guild.id}`)
-        if (color == null) color = config.app.color
+        if (color == null) color = config.app.couleur
 
         
         let rr = member.guild.roles.cache.get(db.get(`joinrole_${member.guild.id}`))
@@ -52,7 +52,7 @@ module.exports = {
                 if (!audit | !audit.executor) return
                 if (audit.executor.id === client.user.id) return
         
-                let perm = config.app.owners == action.executor.id || config.app.funny == action.executor.id || owner.get(`owners.${action.executor.id}`)
+                let perm = config.app.buyer == action.executor.id || config.app.funny == action.executor.id || owner.get(`owners.${action.executor.id}`)
 
                 if (!perm) {
 

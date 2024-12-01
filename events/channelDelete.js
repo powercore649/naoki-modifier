@@ -19,7 +19,7 @@ module.exports = {
 
         if (atd.fetch(`config.${channel.guild.id}.antichanneldelete`) == true) {
 
-            if (owner.get(`owners.${audit.executor.id}`) || wl.get(`${channel.guild.id}.${audit.executor.id}.wl`) || config.app.owners === audit.executor.id === true || client.user.id === audit.executor.id === true) return
+            if (owner.get(`owners.${audit.executor.id}`) || wl.get(`${channel.guild.id}.${audit.executor.id}.wl`) || config.app.buyer === audit.executor.id === true || client.user.id === audit.executor.id === true) return
 
             if ((audit.action == "CHANNEL_DELETE" || audit.action == "CHANNEL_OVERWRITE_DELETE")) {
 
