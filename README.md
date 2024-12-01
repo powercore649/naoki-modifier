@@ -1,4 +1,5 @@
 https://dsc.gg/4wip - Discord
+Les contributions sont acceptée
 
 Création d'un bot
 ```
