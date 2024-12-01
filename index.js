@@ -14,7 +14,7 @@ const client = new Client({
     partials: ["USER", "CHANNEL", "GUILD_MEMBER", "MESSAGE", "REACTION"]
 });
 
-client.login(process.env.token);
+client.login(process.env.token); // Tu remplacer par client.login("Le Token Du Bot")
 client.commands = new Collection();
 
 const { GiveawaysManager } = require('discord-giveaways');
@@ -28,7 +28,7 @@ client.giveawaysManager = new GiveawaysManager(client, {
     }
 });
 
-//|▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬| commande  modération Handler |▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬|
+//|▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬| HANDLER |▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬|
 
 const commandFiles = readdirSync('./moderation').filter(file => file.endsWith('.js'));
 for (const file of commandFiles) {
@@ -36,7 +36,6 @@ for (const file of commandFiles) {
     client.commands.set(command.name, command);
 }
 
-//|▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬| commande  parametre Handler |▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬|
 
 const parametreFiles = readdirSync('./parametre').filter(file => file.endsWith('.js'));
 for (const file of parametreFiles) {
@@ -44,15 +43,11 @@ for (const file of parametreFiles) {
     client.commands.set(command.name, command);
 }
 
-//|▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬| commande  Gestion Handler |▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬|
-
 const gestionFiles = readdirSync('./gestion').filter(file => file.endsWith('.js'));
 for (const file of gestionFiles) {
     const command = require(`./gestion/${file}`);
     client.commands.set(command.name, command);
 }
-
-//|▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬| commande  utilitaire Handler |▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬|
 
 const utilitaireFiles = readdirSync('./utilitaire').filter(file => file.endsWith('.js'));
 for (const file of utilitaireFiles) {
@@ -60,22 +55,17 @@ for (const file of utilitaireFiles) {
     client.commands.set(command.name, command);
 }
 
-//|▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬| commande  logs Handler |▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬|
-
 const logsFiles = readdirSync('./logs').filter(file => file.endsWith('.js'));
 for (const file of logsFiles) {
     const command = require(`./logs/${file}`);
     client.commands.set(command.name, command);
 }
-//|▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬| commande  antiraid Handler |▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬|
 
 const antiraidFiles = readdirSync('./antiraid').filter(file => file.endsWith('.js'));
 for (const file of antiraidFiles) {
     const command = require(`./antiraid/${file}`);
     client.commands.set(command.name, command);
 }
-
-//|▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬| Event Handler |▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬|
 
 const eventFiles = readdirSync('./events').filter(file => file.endsWith('.js'));
 for (const file of eventFiles) {
@@ -87,7 +77,8 @@ for (const file of eventFiles) {
     }
 }
 
-//ANTI CRASH
+//|▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬| ANTI-CRASH |▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬|
+
 process.on("unhandledRejection", (reason, p) => {
     if (reason.code === 50007) return; // Cannot send messages to this user
     if (reason.code == 10062) return; // Unknown interaction
