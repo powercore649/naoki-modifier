@@ -36,11 +36,11 @@ for (const file of commandFiles) {
     client.commands.set(command.name, command);
 }
 
-//|▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬| commande  BotControl Handler |▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬|
+//|▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬| commande  parametre Handler |▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬|
 
-const botcontrolFiles = readdirSync('./botcontrol').filter(file => file.endsWith('.js'));
-for (const file of botcontrolFiles) {
-    const command = require(`./botcontrol/${file}`);
+const parametreFiles = readdirSync('./parametre').filter(file => file.endsWith('.js'));
+for (const file of parametreFiles) {
+    const command = require(`./parametre/${file}`);
     client.commands.set(command.name, command);
 }
 
@@ -52,11 +52,11 @@ for (const file of gestionFiles) {
     client.commands.set(command.name, command);
 }
 
-//|▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬| commande  utilities Handler |▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬|
+//|▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬| commande  utilitaire Handler |▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬|
 
-const utilitiesFiles = readdirSync('./utilities').filter(file => file.endsWith('.js'));
-for (const file of utilitiesFiles) {
-    const command = require(`./utilities/${file}`);
+const utilitaireFiles = readdirSync('./utilitaire').filter(file => file.endsWith('.js'));
+for (const file of utilitaireFiles) {
+    const command = require(`./utilitaire/${file}`);
     client.commands.set(command.name, command);
 }
 
