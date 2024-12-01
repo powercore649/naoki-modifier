@@ -14,7 +14,7 @@ module.exports = {
     description: `Permet d'afficher des informations relatives au serveur`,
     async execute(client, message, args) {
         let color = cl.fetch(`color_${message.guild.id}`);
-        if (color == null) color = config.app.couleur;
+        if (color == null) color = config.bot.couleur;
 
         if (!args[0]) {
             return message.channel.send("Veuillez fournir un argument valide (pic, banner, info).");
@@ -95,7 +95,7 @@ module.exports = {
                     { name: `${emote.utilitaire.link} URL Personnalisée`, value: message.guild.vanityURLCode ? `discord.gg/${message.guild.vanityURLCode}` : `Le serveur ne possède pas d'URL`, inline: true },
                     { name: `${emote.utilitaire.iconsettings} Vérification du serveur`, value: `${verifLevels[message.guild.verificationLevel]}`, inline: true }
                 )
-                .setFooter({ text: `${config.app.footer}` });
+                .setFooter({ text: `${config.bot.footer}` });
             message.channel.send({ embeds: [embed] });
         } else {
         }

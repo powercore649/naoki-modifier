@@ -1,5 +1,5 @@
 module.exports = {
-    app: {
+    bot: {
         prefixe: '+', // Préfixe - Le texte avant les commandes
         buyer: '1208337813339373569', // Buyer
         funny: '1208337813339373569',  // Buyer

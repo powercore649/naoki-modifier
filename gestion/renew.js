@@ -14,11 +14,11 @@ module.exports = {
 
         if (owner.get(`owners.${message.author.id}`) || 
             message.member.roles.cache.has(p3.fetch(`perm3_${message.guild.id}`)) || 
-            config.app.buyer.includes(message.author.id) || 
-            config.app.funny.includes(message.author.id) === true) {
+            config.bot.buyer.includes(message.author.id) || 
+            config.bot.funny.includes(message.author.id) === true) {
 
             let color = cl.fetch(`color_${message.guild.id}`);
-            if (color == null) color = config.app.couleur;
+            if (color == null) color = config.bot.couleur;
 
             if (args[0] === "all") {
                 const channels = message.guild.channels.cache.filter(ch => ch.type !== 'category');

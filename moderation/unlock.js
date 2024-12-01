@@ -14,10 +14,10 @@ module.exports = {
     description: `Permet de dévérouillé un salon.`,
     async execute(client, message, args, color) {
 
-        if (owner.get(`owners.${message.author.id}`) || config.app.buyer.includes(message.author.id) || config.app.funny.includes(message.author.id) === true) {
+        if (owner.get(`owners.${message.author.id}`) || config.bot.buyer.includes(message.author.id) || config.bot.funny.includes(message.author.id) === true) {
 
             let color = cl.fetch(`color_${message.guild.id}`)
-            if (color == null) color = config.app.couleur
+            if (color == null) color = config.bot.couleur
 
 
             if (args[0] === "all") {
@@ -41,7 +41,7 @@ module.exports = {
                 return
             }
         }
-        if (owner.get(`owners.${message.author.id}`) || message.member.roles.cache.has(p3.fetch(`perm3_${message.guild.id}`)) || config.app.buyer.includes(message.author.id) || config.app.funny.includes(message.author.id) === true) {
+        if (owner.get(`owners.${message.author.id}`) || message.member.roles.cache.has(p3.fetch(`perm3_${message.guild.id}`)) || config.bot.buyer.includes(message.author.id) || config.bot.funny.includes(message.author.id) === true) {
             let channel = message.mentions.channels.first() || message.guild.channels.cache.get(args[0]) || message.channel
 
             try {

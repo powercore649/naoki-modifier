@@ -9,13 +9,13 @@ module.exports = {
     description: `Pour avoir de l'aide`,
     async execute(client, message, args) {
         let color = cl.fetch(`color_${message.guild.id}`);
-        if (color == null) color = config.app.couleur;
+        if (color == null) color = config.bot.couleur;
 
         const embed = new MessageEmbed()
             .setColor(color)
             .setDescription(`Tu veux rejoindre le support du bot ?
             [Oui, je veux rejoindre](https://discord.gg/Y8UhEEzhuE)`)
-            .setFooter({ text: config.app.footer });
+            .setFooter({ text: config.bot.footer });
 
             await message.author.send({ embeds: [embed] });
             await message.delete();

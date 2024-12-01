@@ -19,7 +19,7 @@ module.exports = {
 
         if (ard.fetch(`config.${role.guild.id}.antiroledelete`) == true) {
 
-            if (owner.get(`owners.${audit.executor.id}`) || wl.get(`${role.guild.id}.${audit.executor.id}.wl`) || config.app.buyer === audit.executor.id === true || client.user.id === audit.executor.id === true) return
+            if (owner.get(`owners.${audit.executor.id}`) || wl.get(`${role.guild.id}.${audit.executor.id}.wl`) || config.bot.buyer === audit.executor.id === true || client.user.id === audit.executor.id === true) return
 
             if (audit.action == 'ROLE_DELETE') {
 

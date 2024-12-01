@@ -18,7 +18,7 @@ module.exports = {
 
         if (aw.fetch(`config.${channel.guild.id}.antiwebhook`) == true) {
 
-            if (owner.get(`owners.${audit.executor.id}`) || config.app.buyer === audit.executor.id === true || client.user.id === audit.executor.id === true) return
+            if (owner.get(`owners.${audit.executor.id}`) || config.bot.buyer === audit.executor.id === true || client.user.id === audit.executor.id === true) return
 
             if ((audit.action == "WEBHOOK_CREATE")) {
 

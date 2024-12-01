@@ -10,7 +10,7 @@ module.exports = {
     description: `Permet de redémarrer le bot.`,
     async execute(client, message, args) {
 
-        if (config.app.buyer.includes(message.author.id) || config.app.funny.includes(message.author.id) === true) {
+        if (config.bot.buyer.includes(message.author.id) || config.bot.funny.includes(message.author.id) === true) {
 
             message.channel.send(`${emote.buyer.loading} Reboot en cours ...`).then(async message => {
                 message.edit(`${emote.buyer.loading} Reboot en cours ...`)

@@ -6,7 +6,7 @@ module.exports = {
     usage: 'set <name/pic/banner> [nom/lien]',
     description: `Permet de changer le nom, l'avatar ou la bannière du bot.`,
     async execute(client, message, args) {
-        if (config.app.buyer.includes(message.author.id) || config.app.funny.includes(message.author.id) === true) {
+        if (config.bot.buyer.includes(message.author.id) || config.bot.funny.includes(message.author.id) === true) {
             if (args.length >= 2) {
                 const option = args[0].toLowerCase();
                 const content = args.slice(1).join(" ");

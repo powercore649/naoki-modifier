@@ -7,8 +7,8 @@ const p1 = new db.table("Perm1");
 const p2 = new db.table("Perm2");
 const p3 = new db.table("Perm3");
 const ml = new db.table("modlog");
-const footer = config.app.footer;
-const couleur = config.app.couleur;
+const footer = config.bot.footer;
+const couleur = config.bot.couleur;
 
 module.exports = {
     name: 'mute',
@@ -16,13 +16,13 @@ module.exports = {
     description: `Permet de rendre muet un utilisateur sur le serveur`,
     async execute(client, message, args) {
         let pf = p.fetch(`prefix_${message.guild.id}`);
-        if (pf == null) pf = config.app.prefixe;
+        if (pf == null) pf = config.bot.prefixe;
 
         const perm1 = p1.fetch(`perm1_${message.guild.id}`);
         const perm2 = p2.fetch(`perm2_${message.guild.id}`);
         const perm3 = p3.fetch(`perm3_${message.guild.id}`);
 
-        if (owner.get(`owners.${message.author.id}`) || message.member.roles.cache.has(perm1) || message.member.roles.cache.has(perm2) || message.member.roles.cache.has(perm3) || config.app.buyer.includes(message.author.id) || config.app.funny.includes(message.author.id) === true) {
+        if (owner.get(`owners.${message.author.id}`) || message.member.roles.cache.has(perm1) || message.member.roles.cache.has(perm2) || message.member.roles.cache.has(perm3) || config.bot.buyer.includes(message.author.id) || config.bot.funny.includes(message.author.id) === true) {
             let target = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
 
             if (!args[0]) return message.channel.send(`**Veuillez mentionner un utilisateur ou fournir son ID !**`);

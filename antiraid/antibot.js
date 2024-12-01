@@ -13,9 +13,9 @@ module.exports = {
     async execute(client, message, args) {
 
         let color = cl.fetch(`color_${message.guild.id}`)
-        if (color == null) color = config.app.couleur
+        if (color == null) color = config.bot.couleur
 
-        if (owner.get(`owners.${message.author.id}`) || config.app.buyer.includes(message.author.id) || config.app.funny.includes(message.author.id) === true) {
+        if (owner.get(`owners.${message.author.id}`) || config.bot.buyer.includes(message.author.id) || config.bot.funny.includes(message.author.id) === true) {
 
             if (args[0] == 'on') {
                 atb.set(`config.${message.guild.id}.antibot`, true)

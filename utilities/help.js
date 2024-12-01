@@ -4,7 +4,7 @@ const db = require('quick.db')
 const p = new db.table("Prefix")
 const cl = new db.table("Color")
 const owner = new db.table("Owner")
-const footer = config.app.footer
+const footer = config.bot.footer
 const paginationEmbed = require('discordjs-button-pagination')
 
 module.exports = {
@@ -15,10 +15,10 @@ module.exports = {
     async execute(client, message, args) {
 
         let pf = p.fetch(`prefix_${message.guild.id}`)
-        if (pf == null) pf = config.app.prefixe
+        if (pf == null) pf = config.bot.prefixe
         
         let color = cl.fetch(`color_${message.guild.id}`)
-        if (color == null) color = config.app.couleur
+        if (color == null) color = config.bot.couleur
 /*
     if (args[0] === "msg") {
 
@@ -60,7 +60,7 @@ module.exports = {
         if (args[0] === "all") {
 
             let color = cl.fetch(`color_${message.guild.id}`)
-            if (color == null) color = config.app.couleur
+            if (color == null) color = config.bot.couleur
 
             const public = new Discord.MessageEmbed()
                 .setTitle('Commandes Publiques - Pas Finis')

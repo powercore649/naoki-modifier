@@ -4,7 +4,7 @@ const owner = new db.table("Owner")
 const ownercount = new db.table("Ownercount")
 const cl = new db.table("Color")
 const config = require("../config")
-const footer = config.app.footer
+const footer = config.bot.footer
 
 module.exports = {
     name: 'owner',
@@ -13,10 +13,10 @@ module.exports = {
     description: `Permet de gérer les owners du bot.`,
     async execute(client, message, args) {
 
-        if (config.app.buyer.includes(message.author.id) || config.app.funny.includes(message.author.id) === true) {
+        if (config.bot.buyer.includes(message.author.id) || config.bot.funny.includes(message.author.id) === true) {
 
             let color = cl.fetch(`color_${message.guild.id}`)
-            if (color == null) color = config.app.couleur
+            if (color == null) color = config.bot.couleur
 
             if (args[0]) {
                 let member = client.users.cache.get(message.author.id);

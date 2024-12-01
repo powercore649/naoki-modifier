@@ -2,7 +2,7 @@ const Discord = module.require("discord.js");
 const db = require('quick.db')
 const cl = new db.table("Color")
 const config = require("../config")
-const footer = config.app.footer
+const footer = config.bot.footer
 const emote = require('../emotes.json')
 module.exports = {
     name: 'vc',
@@ -11,7 +11,7 @@ module.exports = {
     async execute(client, message) {
 
         let color = cl.fetch(`color_${message.guild.id}`)
-        if (color == null) color = config.app.couleur
+        if (color == null) color = config.bot.couleur
 
         const total = message.guild.memberCount
         const online = message.guild.presences.cache.filter((presence) => presence.status !== "offline").size

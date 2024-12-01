@@ -3,7 +3,7 @@ const db = require('quick.db')
 const cl = new db.table("Color")
 const owner = new db.table("Owner")
 const config = require("../config")
-const footer = config.app.footer
+const footer = config.bot.footer
 
 module.exports = {
   name: 'massiverole',
@@ -11,10 +11,10 @@ module.exports = {
   description: `Permet d'ajouter un rôle à tous les membres du serveur`,
   async execute(client, message, args) {
 
-    if (owner.get(`owners.${message.author.id}`) || config.app.buyer.includes(message.author.id) || config.app.funny.includes(message.author.id) === true) {
+    if (owner.get(`owners.${message.author.id}`) || config.bot.buyer.includes(message.author.id) || config.bot.funny.includes(message.author.id) === true) {
 
       let color = cl.fetch(`color_${message.guild.id}`)
-      if (color == null) color = config.app.couleur
+      if (color == null) color = config.bot.couleur
 
       if (!args.length) {
         return message.reply("Utilisation: `massiverole add/remove <role>`")

@@ -4,7 +4,7 @@ const owner = new db.table("Owner")
 const cl = new db.table("Color")
 const config = require("../config")
 const fs = require('fs')
-const footer = config.app.footer
+const footer = config.bot.footer
 
 module.exports = {
     name: 'banner',
@@ -13,7 +13,7 @@ module.exports = {
     async execute(client, message, args) {
 
         let color = cl.fetch(`color_${message.guild.id}`)
-        if (color == null) color = config.app.couleur
+        if (color == null) color = config.bot.couleur
 
         let member = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.member
         

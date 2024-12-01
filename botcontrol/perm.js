@@ -10,7 +10,7 @@ const pgp = new db.table("PermGp")
 const pga = new db.table("PermGa")
 const config = require("../config")
 const wl = new db.table("Whitelist")
-const footer = config.app.footer
+const footer = config.bot.footer
 
 module.exports = {
     name: 'perm',
@@ -19,12 +19,12 @@ module.exports = {
     description: `Permet de voir la liste des permissions du serveur.`,
     async execute(client, message, args) {
 
-        if (owner.get(`owners.${message.author.id}`) || config.app.buyer.includes(message.author.id) || config.app.funny.includes(message.author.id) === true) {
+        if (owner.get(`owners.${message.author.id}`) || config.bot.buyer.includes(message.author.id) || config.bot.funny.includes(message.author.id) === true) {
 
             if (args[0] == 'list') {
 
                 let color = cl.fetch(`color_${message.guild.id}`)
-                if (color == null) color = config.app.couleur
+                if (color == null) color = config.bot.couleur
 
                 let perm1 = `<@&${p1.fetch(`perm1_${message.guild.id}`)}>`
                 if (perm1 == `<@&null>`) perm1 = "Non configuré"

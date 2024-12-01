@@ -18,7 +18,7 @@ module.exports = {
         if (message.mentions.members.first()) {
 
 
-            if (owner.get(`owners.${message.author.id}`) || message.member.roles.cache.has(perm2) || message.member.roles.cache.has(perm3) || config.app.buyer.includes(message.author.id) || config.app.funny.includes(message.author.id) === true)
+            if (owner.get(`owners.${message.author.id}`) || message.member.roles.cache.has(perm2) || message.member.roles.cache.has(perm3) || config.bot.buyer.includes(message.author.id) || config.bot.funny.includes(message.author.id) === true)
 
                 message.delete()
             message.channel.messages.fetch({ limit: 100 })
@@ -31,7 +31,7 @@ module.exports = {
 
         } else
             if (!isNaN(message.content.split(' ')[1])) {
-                if (owner.get(`owners.${message.author.id}`) || message.member.roles.cache.has(perm2) || message.member.roles.cache.has(perm3) || config.app.buyer.includes(message.author.id) || config.app.funny.includes(message.author.id) === true) {
+                if (owner.get(`owners.${message.author.id}`) || message.member.roles.cache.has(perm2) || message.member.roles.cache.has(perm3) || config.bot.buyer.includes(message.author.id) || config.bot.funny.includes(message.author.id) === true) {
 
                     let amount = 0;
                     if (message.content.split(' ')[1] === '1' || message.content.split(' ')[1] === '0') {
@@ -48,7 +48,7 @@ module.exports = {
                 }
 
                 let color = cl.fetch(`color_${message.guild.id}`)
-                if (color == null) color = config.app.couleur
+                if (color == null) color = config.bot.couleur
 
                 const embed = new Discord.MessageEmbed()
                     .setColor(color)
@@ -60,7 +60,7 @@ module.exports = {
 
             } else {
 
-                if (owner.get(`owners.${message.author.id}`) || message.member.roles.cache.has(perm2) || message.member.roles.cache.has(perm3) || config.app.buyer.includes(message.author.id) || config.app.funny.includes(message.author.id) === true) {
+                if (owner.get(`owners.${message.author.id}`) || message.member.roles.cache.has(perm2) || message.member.roles.cache.has(perm3) || config.bot.buyer.includes(message.author.id) || config.bot.funny.includes(message.author.id) === true) {
 
 
                     await message.channel.bulkDelete(100, true).then((_message) => {

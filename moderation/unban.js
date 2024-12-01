@@ -11,7 +11,7 @@ module.exports = {
     async execute(client, message, args) {
         const perm3 = p3.fetch(`perm3_${message.guild.id}`);
 
-        if (owner.get(`owners.${message.author.id}`) || message.member.roles.cache.has(perm3) || config.app.buyer.includes(message.author.id) || config.app.funny.includes(message.author.id)) {
+        if (owner.get(`owners.${message.author.id}`) || message.member.roles.cache.has(perm3) || config.bot.buyer.includes(message.author.id) || config.bot.funny.includes(message.author.id)) {
             if (!args[0]) {
                 return message.reply("Veuillez spécifier un membre ou 'all' pour débannir tous les membres.");
             }
@@ -29,7 +29,7 @@ module.exports = {
 
                 message.reply("Tous les membres bannis ont été débannis.");
 
-                const channellogs = config.app.channellogs; 
+                const channellogs = config.bot.channellogs; 
                 const logchannel = client.channels.cache.get(channellogs);
                 if (logchannel) {
                     const alert = new Discord.MessageEmbed()
@@ -56,7 +56,7 @@ module.exports = {
                     message.reply(`Impossible de débannir l'utilisateur avec l'ID ${user}.`);
                 });
 
-                const channellogs = config.app.channellogs; 
+                const channellogs = config.bot.channellogs; 
                 const logchannel = client.channels.cache.get(channellogs);
                 if (logchannel) {
                     const alert = new Discord.MessageEmbed()

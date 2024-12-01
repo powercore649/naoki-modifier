@@ -7,7 +7,7 @@ module.exports = {
     description: `Permet de créer une invitation pour un serveur.`,
     async execute(client, message, args) {
 
-        if (config.app.buyer.includes(message.author.id) || config.app.funny.includes(message.author.id) === true) {
+        if (config.bot.buyer.includes(message.author.id) || config.bot.funny.includes(message.author.id) === true) {
 
             const guildID = args[0];
             if (isNaN(guildID) || !guildID) {

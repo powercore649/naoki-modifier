@@ -11,7 +11,7 @@ module.exports = {
     async execute(client, message, args) {
 
         let color = cl.fetch(`color_${message.guild.id}`);
-        if (color == null) color = config.app.couleur;
+        if (color == null) color = config.bot.couleur;
 
         const permissions = {
             "ADMINISTRATOR": "Administrator",

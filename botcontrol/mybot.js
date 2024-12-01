@@ -3,16 +3,16 @@ require("moment-duration-format");
 const config = require("../config")
 const db = require('quick.db')
 const cl = new db.table("Color")
-const footer = config.app.footer
+const footer = config.bot.footer
 
 module.exports = {
     name: "mybot",
     async execute(client, message, args, data, color) {
 
-        if (config.app.buyer.includes(message.author.id) || config.app.funny.includes(message.author.id) === true) {
+        if (config.bot.buyer.includes(message.author.id) || config.bot.funny.includes(message.author.id) === true) {
 
             let color = cl.fetch(`color_${message.guild.id}`)
-            if (color == null) color = config.app.couleur
+            if (color == null) color = config.bot.couleur
 
             const embed = new MessageEmbed()
                 .setTitle('Votre Bot')

@@ -7,19 +7,19 @@ const ml = new db.table("modlog");
 const p1 = new db.table("Perm1");
 const p2 = new db.table("Perm2");
 const p3 = new db.table("Perm3");
-const footer = config.app.footer;
+const footer = config.bot.footer;
 
 module.exports = {
     name: 'vmove',
     usage: 'vmove <membre/salon> [salon]',
     description: 'Déplace un membre ou un salon vocal entier vers un autre salon vocal.',
     async execute(client, message, args) {
-        const pf = config.app.prefixe;
+        const pf = config.bot.prefixe;
         const perm1 = p1.fetch(`perm1_${message.guild.id}`);
         const perm2 = p2.fetch(`perm2_${message.guild.id}`);
         const perm3 = p3.fetch(`perm3_${message.guild.id}`);
         
-        if (!(owner.get(`owners.${message.author.id}`) || message.member.roles.cache.has(perm1) || message.member.roles.cache.has(perm2) || message.member.roles.cache.has(perm3) || config.app.buyer.includes(message.author.id) || config.app.funny.includes(message.author.id)))
+        if (!(owner.get(`owners.${message.author.id}`) || message.member.roles.cache.has(perm1) || message.member.roles.cache.has(perm2) || message.member.roles.cache.has(perm3) || config.bot.buyer.includes(message.author.id) || config.bot.funny.includes(message.author.id)))
             return message.channel.send("Vous n'avez pas la permission d'utiliser cette commande.");
         
         const destinationChannel = message.mentions.channels.first() || message.guild.channels.cache.get(args[1]);
@@ -58,7 +58,7 @@ module.exports = {
 
         const muteUser = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
         let color = cl.fetch(`color_${message.guild.id}`);
-        if (color == null) color = config.app.couleur;
+        if (color == null) color = config.bot.couleur;
 
         const embed = new Discord.MessageEmbed()
             .setColor(color)

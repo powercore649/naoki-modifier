@@ -4,7 +4,7 @@ const owner = new db.table("Owner");
 const wl = new db.table("Whitelist");
 const cl = new db.table("Color");
 const config = require("../config");
-const footer = config.app.footer;
+const footer = config.bot.footer;
 
 module.exports = {
     name: 'unwl',
@@ -12,9 +12,9 @@ module.exports = {
     category: "owner",
     description: `Permet d'enlever quelqu'un ou un rôle de la whitelist du bot.`,
     async execute(client, message, args) {
-        if (owner.get(`owners.${message.author.id}`) || config.app.buyer.includes(message.author.id) || config.app.funny.includes(message.author.id)) {
+        if (owner.get(`owners.${message.author.id}`) || config.bot.buyer.includes(message.author.id) || config.bot.funny.includes(message.author.id)) {
             let color = cl.fetch(`color_${message.guild.id}`);
-            if (color == null) color = config.app.couleur;
+            if (color == null) color = config.bot.couleur;
 
             if (args[0]) {
                 let mor;

@@ -4,7 +4,7 @@ const { MessageEmbed } = require('discord.js');
 const config = require("../config")
 const db = require('quick.db')
 const cl = new db.table("Color")
-const footer = config.app.footer
+const footer = config.bot.footer
 
 module.exports = {
     name: 'ping',
@@ -13,7 +13,7 @@ module.exports = {
     async execute(client, message, args) {
 
         let color = cl.fetch(`color_${message.guild.id}`)
-        if (color == null) color = config.app.couleur
+        if (color == null) color = config.bot.couleur
 
         const embed = new Discord.MessageEmbed()
         embed.setTitle("Latence du bot")

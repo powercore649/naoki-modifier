@@ -5,7 +5,7 @@ const config = require("../config")
 const owner = new db.table("Owner")
 const cl = new db.table("Color")
 const ct = new db.table("CategorieTicket")
-const footer = config.app.footer
+const footer = config.bot.footer
 
 
 module.exports = {
@@ -14,10 +14,10 @@ module.exports = {
     description: `Permet de changer la catégorie des tickets.`,
     async execute(client, message, args) {
 
-        if (owner.get(`owners.${message.author.id}`) || config.app.buyer.includes(message.author.id) || config.app.funny.includes(message.author.id) === true) {
+        if (owner.get(`owners.${message.author.id}`) || config.bot.buyer.includes(message.author.id) || config.bot.funny.includes(message.author.id) === true) {
 
             let color = cl.fetch(`color_${message.guild.id}`)
-            if (color == null) color = config.app.couleur
+            if (color == null) color = config.bot.couleur
 
             const funny = message.guild.channels.cache.filter(x => x.type === "GUILD_CATEGORY")
 

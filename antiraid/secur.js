@@ -1,6 +1,6 @@
 const Discord = require("discord.js")
 const config = require("../config")
-const footer = config.app.footer
+const footer = config.bot.footer
 const db = require("quick.db")
 const owner = new db.table("Owner")
 const p = new db.table("Prefix")
@@ -30,12 +30,12 @@ module.exports = {
     async execute(client, message, args) {
 
         let color = cl.fetch(`color_${message.guild.id}`)
-        if (color == null) color = config.app.couleur
+        if (color == null) color = config.bot.couleur
 
         let pf = p.fetch(`prefix_${message.guild.id}`)
-        if (pf == null) pf = config.app.prefixe
+        if (pf == null) pf = config.bot.prefixe
 
-        if (owner.get(`owners.${message.author.id}`) || config.app.buyer.includes(message.author.id) || config.app.funny.includes(message.author.id) === true) {
+        if (owner.get(`owners.${message.author.id}`) || config.bot.buyer.includes(message.author.id) || config.bot.funny.includes(message.author.id) === true) {
 
             const emojion = emote.antiraid.on || "✅"
             const emojioff = emote.antiraid.off || "❌"

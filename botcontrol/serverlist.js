@@ -2,7 +2,7 @@ const Discord = require("discord.js")
 const config = require("../config")
 const db = require('quick.db')
 const cl = new db.table("Color")
-const footer = config.app.footer
+const footer = config.bot.footer
 
 module.exports = {
     name: 'serverlist',
@@ -10,10 +10,10 @@ module.exports = {
     description: `Permet d'afficher les serveurs où est le bot.`,
     async execute(client, message, args, color) {
 
-        if (config.app.buyer.includes(message.author.id) || config.app.funny.includes(message.author.id) === true) {
+        if (config.bot.buyer.includes(message.author.id) || config.bot.funny.includes(message.author.id) === true) {
 
             let color = cl.fetch(`color_${message.guild.id}`)
-            if (color == null) color = config.app.couleur
+            if (color == null) color = config.bot.couleur
 
             this.client = message.client;
             let i0 = 0
@@ -31,7 +31,7 @@ module.exports = {
 
             const embed = new Discord.MessageEmbed()
                 .setColor(color)
-                .setFooter({ text: config.app.footer })
+                .setFooter({ text: config.bot.footer })
                 .setDescription(content)
             message.channel.send({ embeds: [embed] })
 

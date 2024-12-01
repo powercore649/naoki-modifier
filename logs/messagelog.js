@@ -5,7 +5,7 @@ const config = require("../config")
 const owner = new db.table("Owner")
 const msglog = new db.table("msglog")
 const cl = new db.table("Color")
-const footer = config.app.footer
+const footer = config.bot.footer
 const emote = require('../emotes.json')
 
 module.exports = {
@@ -14,10 +14,10 @@ module.exports = {
     description: `Permet de changer le salon des logs pour les messages.`,
     async execute(client, message, args) {
 
-        if (owner.get(`owners.${message.author.id}`) || config.app.buyer.includes(message.author.id) || config.app.funny.includes(message.author.id) === true) {
+        if (owner.get(`owners.${message.author.id}`) || config.bot.buyer.includes(message.author.id) || config.bot.funny.includes(message.author.id) === true) {
 
             let color = cl.fetch(`color_${message.guild.id}`)
-            if (color == null) color = config.app.couleur
+            if (color == null) color = config.bot.couleur
 
             const newChannel = message.mentions.channels.first() || message.guild.channels.cache.get(args[0] || message.channelId);
             if (args[0] == undefined) args[0] = `<#${message.channel.id}>`

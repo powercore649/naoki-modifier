@@ -3,7 +3,7 @@ const db = require("quick.db")
 const config = require("../config")
 const owner = new db.table("Owner")
 const msglog = new db.table("msglog")
-const color = config.app.couleur
+const color = config.bot.couleur
 var getNow = () => { return { time: new Date().toLocaleString("en-GB", { timeZone: "Europe/Paris", hour12: false, hour: "2-digit", minute: "2-digit", second: "2-digit" }) } }
 
 

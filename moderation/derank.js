@@ -4,7 +4,7 @@ const owner = new db.table("Owner");
 const cl = new db.table("Color");
 const modlog = new db.table("modlog")
 const config = require("../config");
-const footer = config.app.footer;
+const footer = config.bot.footer;
 const emote = require('../emotes.json');
 
 module.exports = {
@@ -12,9 +12,9 @@ module.exports = {
     usage: 'derank [membre/all]',
     description: `Permet de derank un membre ou tous les membres sur le serveur.`,
     async execute(client, message, args) {
-        if (owner.get(`owners.${message.author.id}`) || config.app.buyer.includes(message.author.id) || config.app.funny.includes(message.author.id)) {
+        if (owner.get(`owners.${message.author.id}`) || config.bot.buyer.includes(message.author.id) || config.bot.funny.includes(message.author.id)) {
             let color = cl.fetch(`color_${message.guild.id}`);
-            if (color == null) color = config.app.couleur;
+            if (color == null) color = config.bot.couleur;
 
             if (!args[0]) {
                 return message.reply("Veuillez spécifier un membre ou 'all' pour derank tout le serveur.");

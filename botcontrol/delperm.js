@@ -9,7 +9,7 @@ const pgs = new db.table("PermGs")
 const pgp = new db.table("PermGp")
 const pga = new db.table("PermGa")
 const config = require("../config")
-const footer = config.app.footer
+const footer = config.bot.footer
 
 module.exports = {
     name: 'del',
@@ -18,10 +18,10 @@ module.exports = {
     description: `Permet de gérer les permissions des rôles.`,
     async execute(client, message, args) {
 
-        if (owner.get(`owners.${message.author.id}`) || config.app.buyer.includes(message.author.id) || config.app.funny.includes(message.author.id) === true) {
+        if (owner.get(`owners.${message.author.id}`) || config.bot.buyer.includes(message.author.id) || config.bot.funny.includes(message.author.id) === true) {
 
             let color = cl.fetch(`color_${message.guild.id}`)
-            if (color == null) color = config.app.couleur
+            if (color == null) color = config.bot.couleur
 
             if (args[0] === "perm1") {
 

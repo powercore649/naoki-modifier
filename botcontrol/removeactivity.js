@@ -9,7 +9,7 @@ module.exports = {
   description: `Supprime l'activité actuelle du bot.`,
   async execute(client, message, args) {
 
-    if (owner.get(`owners.${message.author.id}`) || config.app.buyer.includes(message.author.id) || config.app.funny.includes(message.author.id)) {
+    if (owner.get(`owners.${message.author.id}`) || config.bot.buyer.includes(message.author.id) || config.bot.funny.includes(message.author.id)) {
 
       if (!message.guild) return;
 

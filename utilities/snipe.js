@@ -4,7 +4,7 @@ const cl = new db.table("Color");
 const config = require("../config");
 const fs = require('fs');
 const moment = require('moment');
-const footer = config.app.footer;
+const footer = config.bot.footer;
 const links = [
     'discord.gg',
     'dsc.bio',
@@ -29,7 +29,7 @@ module.exports = {
     async execute(client, message, args) {
 
         let color = cl.fetch(`color_${message.guild.id}`);
-        if (color == null) color = config.app.couleur;
+        if (color == null) color = config.bot.couleur;
 
         let isLinkall = false;
 

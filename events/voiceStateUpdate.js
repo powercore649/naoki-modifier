@@ -4,7 +4,7 @@ const config = require('../config')
 const owner = new db.table("Owner")
 const wl = new db.table("Whitelist")
 const blv = new db.table("blvoc")
-const footer = config.app.footer
+const footer = config.bot.footer
 
 
 module.exports = {
@@ -14,7 +14,7 @@ module.exports = {
     async execute(client, oldState, newState) {
 
         if (db.fetch(`${newState.guild.id}.antivoc.${newState.channelId}`)) {
-            if (owner.get(`owners.${newState.id}`) || wl.get(`${newState.guild.id}.${newState.id}.vl`) || config.app.buyer === newState.id === true || client.user.id === newState.id === true) return
+            if (owner.get(`owners.${newState.id}`) || wl.get(`${newState.guild.id}.${newState.id}.vl`) || config.bot.buyer === newState.id === true || client.user.id === newState.id === true) return
             newState.disconnect()
             const embed = new Discord.MessageEmbed()
                 .setTitle(`Anti Join`)

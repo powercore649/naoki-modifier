@@ -10,10 +10,10 @@ module.exports = {
     description: `Permet de faire un menu buttonrole.`,
     async execute(client, message, args) {
 
-        if (owner.get(`owners.${message.author.id}`) || config.app.buyer.includes(message.author.id) || config.app.funny.includes(message.author.id) === true) {
+        if (owner.get(`owners.${message.author.id}`) || config.bot.buyer.includes(message.author.id) || config.bot.funny.includes(message.author.id) === true) {
 
             let color = cl.fetch(`color_${message.guild.id}`)
-            if (color == null) color = config.app.couleur
+            if (color == null) color = config.bot.couleur
 
             const role = message.mentions.roles.first() || message.guild.roles.cache.get(args[0])
             const msg = args.slice(1).join(" ")

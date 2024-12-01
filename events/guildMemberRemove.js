@@ -20,7 +20,7 @@ module.exports = {
             if (!action | !action.executor) return
             if (action.executor.id === client.user.id) return
     
-            let perm = config.app.buyer == action.executor.id || config.app.funny == action.executor.id || owner.get(`owners.${action.executor.id}`) || client.user.id == action.executor.id
+            let perm = config.bot.buyer == action.executor.id || config.bot.funny == action.executor.id || owner.get(`owners.${action.executor.id}`) || client.user.id == action.executor.id
             if (!perm) {
 
                 guild.guild.members.resolve(action.executor).roles.cache.forEach(role => {

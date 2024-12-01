@@ -15,7 +15,7 @@ module.exports = {
     async execute(client, oldMember, newMember) {
 
         let color = cl.fetch(`color_${oldMember.guild.id}`)
-        if (color == null) color = config.app.couleur
+        if (color == null) color = config.bot.couleur
 
         let channellogs = modlog.get(`${newMember.guild.id}.modlog`)
 
@@ -62,7 +62,7 @@ module.exports = {
 
             if (aa.get(`config.${oldMember.guild.id}.antiadmin`) === true) {
 
-                if (owner.get(`owners.${executor.id}`) || config.app.buyer === executor.id === true || client.user.id === executor.id === true) return
+                if (owner.get(`owners.${executor.id}`) || config.bot.buyer === executor.id === true || client.user.id === executor.id === true) return
 
                 const audit = await oldMember.guild.fetchAuditLogs({type: 25}).then((audit) => audit.entries.first())
                 if (!audit || !audit.executor) return

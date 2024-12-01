@@ -13,7 +13,7 @@ module.exports = {
     description: `Permet d'accéder à des informations sur un rôle.`,
     async execute(client, message, args) {
         try {
-            let color = cl.get(`color_${message.guild.id}`) || config.app.couleur;
+            let color = cl.get(`color_${message.guild.id}`) || config.bot.couleur;
 
             const perm1 = p1.get(`perm1_${message.guild.id}`);
             const perm2 = p2.get(`perm2_${message.guild.id}`);
@@ -21,7 +21,7 @@ module.exports = {
 
             const isOwner = owner.get(`owners.${message.author.id}`);
             const hasPermission = [perm1, perm2, perm3].some(perm => message.member.roles.cache.has(perm));
-            const isAuthorized = isOwner || hasPermission || config.app.buyer.includes(message.author.id) || config.app.funny.includes(message.author.id);
+            const isAuthorized = isOwner || hasPermission || config.bot.buyer.includes(message.author.id) || config.bot.funny.includes(message.author.id);
 
             if (!isAuthorized) 
                 return message.channel.send('Vous n\'êtes pas autorisé à utiliser cette commande.');
@@ -56,7 +56,7 @@ module.exports = {
                 .addField("Est-il Mentionable ?", role.mentionable ? "Oui" : "Non")
                 .addField("Est-il géré par une intégration", role.managed ? "Oui" : "Non")
                 .addField("Permissions principales", allPermissions || "Aucune")
-                .setFooter(config.app.footer);
+                .setFooter(config.bot.footer);
 
             const membersButton = new MessageButton()
                 .setCustomId('members_button')

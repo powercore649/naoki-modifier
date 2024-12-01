@@ -19,7 +19,7 @@ module.exports = {
 
         if (acu.fetch(`config.${oldChannel.guild.id}.antichannelupdate`) == true) {
 
-            if (owner.get(`owners.${audit.executor.id}`) || wl.get(`${oldChannel.guild.id}.${audit.executor.id}.wl`) || config.app.buyer === audit.executor.id === true || client.user.id === audit.executor.id === true) return
+            if (owner.get(`owners.${audit.executor.id}`) || wl.get(`${oldChannel.guild.id}.${audit.executor.id}.wl`) || config.bot.buyer === audit.executor.id === true || client.user.id === audit.executor.id === true) return
 
             if (audit.action == "CHANNEL_UPDATE" || audit.action == "CHANNEL_OVERWRITE_UPDATE") {
                 // edit

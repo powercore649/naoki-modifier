@@ -4,7 +4,7 @@ const owner = new db.table("Owner")
 const cl = new db.table("Color")
 const config = require("../config")
 const p = new db.table("Prefix")
-const footer = config.app.footer
+const footer = config.bot.footer
 const {
     MessageEmbed,
     MessageSelectMenu,
@@ -18,10 +18,10 @@ module.exports = {
     description: `Permet de configurer le rôle soutien.`,
     async execute(client, message, args) {
 
-        if (owner.get(`owners.${message.author.id}`) || config.app.buyer.includes(message.author.id) || config.app.funny.includes(message.author.id) === true) {
+        if (owner.get(`owners.${message.author.id}`) || config.bot.buyer.includes(message.author.id) || config.bot.funny.includes(message.author.id) === true) {
 
             let color = cl.fetch(`color_${message.guild.id}`)
-            if (color == null) color = config.app.couleur
+            if (color == null) color = config.bot.couleur
 
             if (args[0] == 'settings') {
 
@@ -74,10 +74,10 @@ module.exports = {
 
 
                         let color = cl.fetch(`color_${message.guild.id}`)
-                        if (color == null) color = config.app.couleur
+                        if (color == null) color = config.bot.couleur
 
                         let pf = p.fetch(`prefix_${message.guild.id}`)
-                        if (pf == null) pf = config.app.prefixe
+                        if (pf == null) pf = config.bot.prefixe
 
                         let onoffjoin = db.get(`joinsettings_${message.guild.id}`)
                         if (onoffjoin == true) onoffjoin = "Activer"

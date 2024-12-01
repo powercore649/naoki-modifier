@@ -73,9 +73,9 @@ module.exports = {
         if (message.channel.type == "DM") return
 
         let pf = p.fetch(`prefix_${message.guild.id}`)
-        if (pf == null) pf = config.app.prefixe
+        if (pf == null) pf = config.bot.prefixe
 
-        if (owner.get(`owners.${message.member.id}`) || wl.get(`${message.guild.id}.${message.member.id}.wl`) || config.app.buyer === message.author.id === true) return
+        if (owner.get(`owners.${message.member.id}`) || wl.get(`${message.guild.id}.${message.member.id}.wl`) || config.bot.buyer === message.author.id === true) return
 
         if (antilinkinvite == true) {
 
