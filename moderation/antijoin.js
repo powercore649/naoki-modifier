@@ -4,7 +4,7 @@ const config = require("../config")
 const owner = new db.table("Owner")
 const cl = new db.table("Color")
 const wl = new db.table("Whitelist")
-const emote = require('../emotes.json')
+ 
 
 module.exports = {
     name: 'antijoin',

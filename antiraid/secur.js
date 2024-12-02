@@ -21,7 +21,7 @@ const ae = new db.table("Antieveryone")
 const ad = new db.table("Antidown")
 const lock = new db.table("Serverlock")
 const aa = new db.table("Antiadmin")
-const emote = require('../emotes.json')
+ 
 
 module.exports = {
     name: 'secur',

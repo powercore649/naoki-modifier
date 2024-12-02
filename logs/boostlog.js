@@ -6,7 +6,7 @@ const owner = new db.table("Owner")
 const boostlog = new db.table("boostlog")
 const cl = new db.table("Color")
 const footer = config.bot.footer
-const emote = require('../emotes.json')
+ 
 
 
 module.exports = {

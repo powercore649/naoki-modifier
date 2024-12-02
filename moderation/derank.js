@@ -5,7 +5,7 @@ const cl = new db.table("Color");
 const modlog = new db.table("modlog")
 const config = require("../config");
 const footer = config.bot.footer;
-const emote = require('../emotes.json');
+ ;
 
 module.exports = {
     name: 'derank',

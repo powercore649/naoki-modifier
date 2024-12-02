@@ -4,7 +4,7 @@ const db = require('quick.db')
 const moment = require('moment')
 const fs = require('fs')
 const owner = new db.table("Owner")
-const emote = require('../emotes.json')
+ 
 
 module.exports = {
     name: 'transcript',

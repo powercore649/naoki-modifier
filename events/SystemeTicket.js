@@ -9,7 +9,7 @@ const moment = require('moment')
 const fs = require('fs')
 const ticketlogg = new db.table("ticketlog")
 const dbrolestaff = new db.table("Rolestaff")
-const emote = require('../emotes.json')
+ 
 
 module.exports = {
     name: 'interactionCreate',

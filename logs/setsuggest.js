@@ -5,7 +5,7 @@ const config = require("../config")
 const owner = new db.table("Owner")
 const cl = new db.table("Color")
 const footer = config.bot.footer
-const emote = require('../emotes.json')
+ 
 
 
 module.exports = {

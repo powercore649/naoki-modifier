@@ -12,7 +12,7 @@ const ticketlog = new db.table("ticketlog")
 const giveawaylog = new db.table("giveawaylog")
 const cl = new db.table("Color")
 const footer = config.bot.footer
-const emote = require('../emotes.json')
+ 
 
 
 module.exports = {

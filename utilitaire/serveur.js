@@ -4,7 +4,7 @@ const cl = new db.table("Color");
 const config = require("../config");
 const moment = require('moment');
 require('moment/locale/fr');
-const emote = require('../emotes.json');
+ ;
 
 moment.locale('fr');
 

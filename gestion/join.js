@@ -10,7 +10,7 @@ const {
     MessageSelectMenu,
     MessageActionRow, MessageButton
 } = require(`discord.js`);
-const emote = require('../emotes.json')
+ 
 
 module.exports = {
     name: 'join',

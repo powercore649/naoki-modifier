@@ -2,7 +2,7 @@ const Discord = require("discord.js")
 const db = require('quick.db')
 
 const config = require("../config")
-const emote = require('../emotes.json')
+ 
 
 module.exports = {
     name: 'reboot',
