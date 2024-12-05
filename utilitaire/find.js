@@ -1,32 +1,31 @@
-const Discord = require("discord.js")
-const db = require('quick.db')
-const cl = new db.table("Color")
-const owner = new db.table("Owner")
-const config = require("../config")
-const fs = require('fs')
-const moment = require('moment')
+const Discord = require("discord.js");
+const db = require('quick.db');
+const cl = new db.table("Color");
+const config = require("../config");
 
 module.exports = {
     name: 'find',
-    usage: 'find',
+    usage: 'find [membre/ID]',
     description: `Permet de chercher un membre en vocal dans le serveur.`,
     async execute(client, message, args) {
-
-        let color = cl.fetch(`color_${message.guild.id}`)
-        if (color == null) color = config.bot.couleur
+        let color = cl.fetch(`color_${message.guild.id}`) || config.bot.couleur;
 
         const member = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.member;
 
-        let embed = new Discord.MessageEmbed()
-            .setTitle("Recherche vocal")
+        if (!member) {
+            return message.channel.send("Membre non trouvé. Veuillez mentionner un membre ou fournir un ID valide.");
+        }
+
+        const voiceChannel = member.voice.channel;
+
+        const embed = new Discord.MessageEmbed()
             .setColor(color)
             .addField(
-                `Le membre est en vocal:`,
-                member.voice.channel
-                    ? `<#${member.voice.channel.id}>`
-                    : `Le membre n'est pas en vocal.`,
+                ` `,
+                voiceChannel ? `<#${voiceChannel.id}>` : `Le membre n'est pas en vocal.`,
                 true
-            )
-        message.channel.send({ embeds: [embed] })
+            );
+
+        message.channel.send({ embeds: [embed] });
     }
-}
+};

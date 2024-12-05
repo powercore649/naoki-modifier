@@ -8,12 +8,8 @@ module.exports = {
     once: true,
 
     async execute(client) {
-        console.log(`${client.user.username} connecté`)
-        console.log(
-            `Bot ID: ${client.user.id}\n`
-            + `Bot invitation: https://discord.com/oauth2/authorize?client_id=${client.user.id}&scope=bot&permissions=8`
-
-        )
-
+        console.log(`NOM > ${client.user.username}`)
+        console.log(`ID > ${client.user.id}\n`
+            + `Invitation > https://discord.com/oauth2/authorize?client_id=${client.user.id}&scope=bot&permissions=8`)
         }
     }
