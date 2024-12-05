@@ -1,7 +1,6 @@
 const { MessageEmbed, MessageActionRow, MessageButton } = require('discord.js');
 const config = require("../config");
 const db = require('quick.db');
-
 const cl = new db.table("Color");
 const p1 = new db.table("Perm1");
 const p2 = new db.table("Perm2");
@@ -10,17 +9,14 @@ const owner = new db.table("Owner");
 
 module.exports = {
     name: 'role',
-    description: `Permet d'accéder à des informations sur un rôle.`,
+    description: `Permet d'avoir des informations sur un rôle.`,
     async execute(client, message, args) {
         try {
             let color = cl.get(`color_${message.guild.id}`) || config.bot.couleur;
 
-            const perm1 = p1.get(`perm1_${message.guild.id}`);
-            const perm2 = p2.get(`perm2_${message.guild.id}`);
-            const perm3 = p3.get(`perm3_${message.guild.id}`);
-
+            const permissions = [p1.get(`perm1_${message.guild.id}`), p2.get(`perm2_${message.guild.id}`), p3.get(`perm3_${message.guild.id}`)];
             const isOwner = owner.get(`owners.${message.author.id}`);
-            const hasPermission = [perm1, perm2, perm3].some(perm => message.member.roles.cache.has(perm));
+            const hasPermission = permissions.some(perm => message.member.roles.cache.has(perm));
             const isAuthorized = isOwner || hasPermission || config.bot.buyer.includes(message.author.id) || config.bot.funny.includes(message.author.id);
 
             if (!isAuthorized) 
@@ -40,12 +36,10 @@ module.exports = {
                 MANAGE_ROLES: "Gérer les rôles",
                 MANAGE_CHANNELS: "Gérer les salons",
                 MANAGE_GUILD: "Gérer le serveur"
-                // Ajoutez d'autres permissions dangereuses ou élevées ici si nécessaire
             };
 
             const dangerousPerms = Object.keys(perms).filter(perm => role.permissions.has(perm));
-
-            const allPermissions = dangerousPerms.map(perm => perms[perm]).join(", ");
+            const allPermissions = dangerousPerms.length > 0 ? dangerousPerms.map(perm => perms[perm]).join(", ") : "Aucune";
 
             const roleEmbed = new MessageEmbed()
                 .setColor(color)
@@ -53,9 +47,9 @@ module.exports = {
                 .addField("Couleur Hex", role.hexColor === "#000000" ? "Classique" : role.hexColor)
                 .addField("ID du rôle", role.id)
                 .addField("Est-il affiché séparément ?", role.hoist ? "Oui" : "Non")
-                .addField("Est-il Mentionable ?", role.mentionable ? "Oui" : "Non")
+                .addField("Est-il mentionnable ?", role.mentionable ? "Oui" : "Non")
                 .addField("Est-il géré par une intégration", role.managed ? "Oui" : "Non")
-                .addField("Permissions principales", allPermissions || "Aucune")
+                .addField("Permissions principales", allPermissions)
                 .setFooter(config.bot.footer);
 
             const membersButton = new MessageButton()
@@ -100,26 +94,27 @@ module.exports = {
                     const filter = response => {
                         return message.author.id === response.author.id && response.mentions.members.first();
                     };
-                
+
                     message.channel.awaitMessages({ filter, max: 1, time: 60000, errors: ['time'] })
                         .then(async collected => {
                             const member = collected.first().mentions.members.first();
-                            
+
                             if (!member) {
                                 return message.channel.send("Membre introuvable.");
                             }
-                
+
                             try {
                                 await member.roles.remove(role);
                                 await message.channel.send(`Le rôle ${role.name} a été supprimé avec succès à ${member.user.tag}.`);
                             } catch (error) {
-                             
+                                console.error("Erreur lors de la suppression du rôle:", error);
+                                await message.channel.send("Une erreur est survenue lors de la suppression du rôle.");
                             }
                         })
                         .catch(() => {
-                        
+                            message.channel.send("Temps écoulé, aucune mention reçue.");
                         });
-                
+
                     mention.delete();
                 } else if (i.customId === 'close_button') {
                     await sentMessage.delete();
@@ -133,6 +128,7 @@ module.exports = {
 
         } catch (error) {
             console.error("Une erreur est survenue lors de l'exécution de la commande 'role':", error);
+            message.channel.send("Une erreur est survenue lors de l'exécution de la commande.");
         }
     }
 };
